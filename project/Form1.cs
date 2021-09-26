@@ -45,6 +45,97 @@ namespace project
         int controlNumber = 1;
         string devisibleNumber = "";
         string preduprejdenie = "Please fill the neccessary field";
+
+        private void txtStartForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // проверка на то, чтобы в текстбокс не вводились буквы
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbDevisibleTern_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void rbBlue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBlue.Checked)
+            {
+                
+                rbBlack.Checked = false;
+                rbGreen.Checked = false;
+                rbOrange.Checked = false;
+                txtDevisibleNumbers.ForeColor = Color.Blue;
+            }
+        }
+
+        private void rbGreen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbGreen.Checked)
+
+            {
+                rbBlack.Checked = false;
+                rbBlue.Checked = false;
+                rbOrange.Checked = false;
+                txtDevisibleNumbers.ForeColor = Color.Green;
+            }
+        }
+
+        private void rbOrange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbOrange.Checked)
+            {
+                rbBlack.Checked = false;
+                rbGreen.Checked = false;
+                rbBlue.Checked = false;
+                txtDevisibleNumbers.ForeColor = Color.Orange;
+            }
+        }
+
+        private void rbBlack_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBlack.Checked)
+            {
+                rbBlue.Checked = false;
+                rbGreen.Checked = false;
+                rbOrange.Checked = false;
+                txtDevisibleNumbers.ForeColor = Color.Black;
+            }
+        }
+
+        
+
+
+        private void chItalic_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chItalic.Checked)
+                txtDevisibleNumbers.Font = new Font(txtDevisibleNumbers.Font.FontFamily, txtDevisibleNumbers.Font.Size, FontStyle.Italic);
+            else
+                txtDevisibleNumbers.Font = new Font(txtDevisibleNumbers.Font.FontFamily, txtDevisibleNumbers.Font.Size, FontStyle.Regular);
+        }
+
+        private void chBold_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBold.Checked)
+                txtDevisibleNumbers.Font = new Font(txtDevisibleNumbers.Font.FontFamily, txtDevisibleNumbers.Font.Size, FontStyle.Bold);
+            else
+                txtDevisibleNumbers.Font = new Font(txtDevisibleNumbers.Font.FontFamily, txtDevisibleNumbers.Font.Size, FontStyle.Regular);
+        }
+
         private void btnCount_Click(object sender, EventArgs e)
         {
             //string preduprejdenie = "Please fill the neccessary field";
